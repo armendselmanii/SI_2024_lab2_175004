@@ -15,6 +15,7 @@ TestCase4: user(username=Armend; password=12345678910112341; email: armend123) ;
 TestCase5: user(username=Armend; password= finki ukim; email: finki@ukim.mk) ; AllUsers= (username=Armend; password= finki ukim; email= finki@ukim.mk)
 Пасвордот да содржи празно место.
 Со овие test caseovi се исполнува Every Branch критериумот.
+
 ![242367337-69e1fd7f-db22-4cbd-ad02-aada6b77d2e9](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/3b63c789-b31c-41d4-a090-d1db0352809f)
 # Тест случаи според критериумот Multiple Condition
 Според овој критериум за условот if (user==null || user.getPassword()==null || user.getEmail()==null) имаме 4 можни сценарија
