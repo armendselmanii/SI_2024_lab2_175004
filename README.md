@@ -1,9 +1,9 @@
-#Armend Selmani 175004
-#Control Flow Graph : 
+# Armend Selmani 175004
+# Control Flow Graph : 
 ![242310994-a64e1995-850d-48fc-9549-b8a844918171](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/169da54a-0967-44fd-a3c0-fee17dc8c8c0)
-#Цикломатска Комплексност:
+# Цикломатска Комплексност:
 Цикломатската комплексност на овој код е 11, истата ја добив преку формулата V (G) = E - N + 2, каде што E е бројот на ребра а N e бројот на јазли. Во случајoв Е=39, N=30 па цикломатската комплексност изнесува 11.
-#Тест случаи според критериумот Every branch
+# Тест случаи според критериумот Every branch
 TestCase1 : user = null; AllUsers=null;
 Да влезе во првиот IF и да фрли excepction
 TestCase2: user(username=null;password =1234fin!.; email=finki@ukim.mk) ; AllUsers = (username=null; password=1234fin!.; email=finki@ukim.mk)
@@ -16,7 +16,7 @@ TestCase5: user(username=Armend; password= finki ukim; email: finki@ukim.mk) ; A
 Пасвордот да содржи празно место.
 Со овие test caseovi се исполнува Every Branch критериумот.
 ![242367337-69e1fd7f-db22-4cbd-ad02-aada6b77d2e9](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/3b63c789-b31c-41d4-a090-d1db0352809f)
-#Тест случаи според критериумот Multiple Condition
+# Тест случаи според критериумот Multiple Condition
 Според овој критериум за условот if (user==null || user.getPassword()==null || user.getEmail()==null) имаме 4 можни сценарија
 T X X
 F T X
