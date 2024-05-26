@@ -1,49 +1,24 @@
 # Armend Selmani 175004
 # Control Flow Graph : 
-![242310994-a64e1995-850d-48fc-9549-b8a844918171](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/169da54a-0967-44fd-a3c0-fee17dc8c8c0)
+![CFG](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/d39a3d2c-5030-4b5a-af13-b4b82cb74819)
 # Цикломатска Комплексност:
-Цикломатската комплексност на овој код е 11, истата ја добив преку формулата V (G) = E - N + 2, каде што E е бројот на ребра а N e бројот на јазли. Во случајoв Е=39, N=30 па цикломатската комплексност изнесува 11.
+-Ја користиме формулата со предикатни јазли(јазли на разгранување)=>P+1, од кај што се добива P=9, затоа комплексноста е 10.
 # Тест случаи според критериумот Every branch
-TestCase1 : user = null; AllUsers=null;
-
-Да влезе во првиот IF и да фрли excepction
-
-TestCase2: user(username=null;password =1234fin!.; email=finki@ukim.mk) ; AllUsers = (username=null; password=1234fin!.; email=finki@ukim.mk)
-
-Различен username, passwordot да содржи специјални знаци, ист мејл.
-
-TestCase3: user(username=Armend; password = armend; email = finki@ukim.mk) ; AllUsers = (username=Armend; password= armend; email=finkiukim)
-
-Passwordot да има помалце од 8 карактери и различен меил ист username.
-
-TestCase4: user(username=Armend; password=12345678910112341; email: armend123) ; AllUsers = (username=Armend; password=1241432131; email=bilosto)
-
-Мејлот да не содржи @ i . i password без специјален знак
-
-TestCase5: user(username=Armend; password= finki ukim; email: finki@ukim.mk) ; AllUsers= (username=Armend; password= finki ukim; email= finki@ukim.mk)
-
-Пасвордот да содржи празно место.
-
-Со овие test caseovi се исполнува Every Branch критериумот.
-
-![242367337-69e1fd7f-db22-4cbd-ad02-aada6b77d2e9](https://github.com/armendselmanii/SI_2024_lab2_175004/assets/139174554/3b63c789-b31c-41d4-a090-d1db0352809f)
+1. allItems е null, затоа фрламе исклучок и програмата завршува
+2. allItems e празна листа, payment e 0
+3. allItems e празна листа, payment e -1
+4. allItems = [" ", null, 10, 0.1f], payment = 1, barcode e null, името е празен string
+5. allItems = [" ", "0222", 301, 0.2f], payment = 2, barcode има 0 на почеток, цената е над 300
+6. allItems = ["ime1", "33bukvi33", 30, 0.3f], payment = 3, barcode има букви во него, name не е празен string
+7. allItems = ["ime2", "4444", 40, 0.4f], payment = -4, price е помала од 300, payment e негативен
 # Тест случаи според критериумот Multiple Condition
 
-Според овој критериум за условот if (user==null || user.getPassword()==null || user.getEmail()==null) имаме 4 можни сценарија
+Според овој критериум за условот if (item.getPrice() > 300 && item.getDiscount() > 0 && item.getBarcode().charAt(0) == '0') имаме 4 можни сценарија
 
-T X X
+ 1. assertEquals(true, SILab2.checkCart(create(new Item("ime1", "0111", 1111, 0.1f)), 100)); => TTT, доделените вредности се валидни
+ 2. assertEquals(false, SILab2.checkCart(create(new Item("ime2", "2222", 2222, 0.1f)), 2)); => TTF, само за barcode е неточна
+ 3. assertEquals(false, SILab2.checkCart(create(new Item("ime3", "0323", 3333, 0)), 3)); => TFX, price=true, discount=false, barcode=не е важна
+ 4. assertEquals(false, SILab2.checkCart(create(new Item("ime4", "0333", 111, 0.3f)), 4)); => FXX, price=false, discount, barcode=не се важни
 
-F T X
-
-F F T
-
-F F F
-
-TestCase1: User == null
-
-TestCase2: User("Armend", null, "bilosto")
-
-TestCase3: User("Armend", "password", null)
-
-TestCase4: User("Armend", "password", "bilosto")
-
+# Објаснување на напишаните unit tests
+Unit тестовите се пишуваат во посебна класа SILab2Test, каде што се опфаќаат сите случаеви според Every branch и Multiple Condition методите.
